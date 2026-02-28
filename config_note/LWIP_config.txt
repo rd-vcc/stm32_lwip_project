@@ -1,0 +1,26 @@
+- Inform ethernet connection (Thông báo kết nối ethernet): LWIP > App > lwip.c
+
+```c
+
+static void ethernet_link_status_updated(struct netif *netif)
+{
+  if (netif_is_up(netif))
+  {
+/* USER CODE BEGIN 5 */
+	  uint8_t iptxt[20];
+	  sprintf((char *)iptxt, "%s", ip4addr_ntoa(netif_ip4_addr(netif)));
+	  printf("INFO: netif_is_up(). Static IP address: %s\r\n", iptxt);
+/* USER CODE END 5 */
+  }
+  else /* netif is down */
+  {
+/* USER CODE BEGIN 6 */
+	  printf("INFO: netif_is_down(). The network cable is not connected!\r\n");
+/* USER CODE END 6 */
+  }
+}
+
+```
+
+- Set stack size để chống tràn (mặc định là 384): 
+Set INTERFACE_THREAD_STACK_SIZE to 1024: LWIP > Target > ethernetif.c

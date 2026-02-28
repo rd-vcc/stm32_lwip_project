@@ -1,0 +1,12 @@
+- Inform task's stack overflow(Thông báo tràn stack tác vụ): Core > Src > freertos.c
+```c
+/* USER CODE BEGIN 4 */
+void vApplicationStackOverflowHook(xTaskHandle xTask, signed char *pcTaskName)
+{
+printf("ERROR: Stack ovf: %s\r\n", pcTaskName);
+}
+/* USER CODE END 4 */
+
+```
+
+	

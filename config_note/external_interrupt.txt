@@ -1,0 +1,8 @@
+External interrupt - ngắt ngoài
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+    if (GPIO_Pin == GPIO_PIN_0) {
+        // Toggle an LED (e.g., the Green LED on PD12)
+        HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+    }
+}
